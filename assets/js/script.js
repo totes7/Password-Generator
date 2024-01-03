@@ -1,5 +1,5 @@
 // Array of special characters to be included in password
-var specialCharacters = [
+let specialCharacters = [
   '@',
   '%',
   '+',
@@ -26,10 +26,10 @@ var specialCharacters = [
 ];
 
 // Array of numeric characters to be included in password
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
+let lowerCasedCharacters = [
   'a',
   'b',
   'c',
@@ -59,7 +59,7 @@ var lowerCasedCharacters = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
+let upperCasedCharacters = [
   'A',
   'B',
   'C',
@@ -91,6 +91,11 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
 
+  let length = prompt("How many characters should your password contain? (8-128)");
+  let lower = confirm("Should your password contain any lower case characters?");
+  let upper = confirm("Should your password contain any upper case characters?");
+  let special = confirm("Should your password contain any special characters?");
+
 }
 
 // Function for getting a random element from an array
@@ -104,12 +109,12 @@ function generatePassword() {
 }
 
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+let generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+  let password = generatePassword();
+  let passwordText = document.querySelector('#password');
 
   passwordText.value = password;
 }
