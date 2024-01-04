@@ -158,8 +158,6 @@ function generatePassword() {
   return password;
 }
 
-generatePassword();
-
 // Get references to the #generate element
 let generateBtn = document.querySelector("#generate");
 
