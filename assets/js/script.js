@@ -94,14 +94,32 @@ function getPasswordOptions() {
   let length = prompt("How many characters should your password contain? (8-128)");
   let lower = confirm("Should your password contain any lower case characters?");
   let upper = confirm("Should your password contain any upper case characters?");
+  let numeric = confirm("Should your password contain any numeric characters?");
   let special = confirm("Should your password contain any special characters?");
+  console.log(length);
+  console.log(lower);
+  console.log(upper);
+  console.log(numeric);
+  console.log(special);
+  return length, lower, upper, numeric, special;
 
 }
+
+console.log(getPasswordOptions());
 
 // Function for getting a random element from an array
 function getRandom(arr) {
 
+  let index = Math.floor(Math.random() * arr.length);
+
+  return arr[index];
+
 }
+
+console.log(getRandom(upperCasedCharacters));
+console.log(getRandom(lowerCasedCharacters));
+console.log(getRandom(specialCharacters));
+console.log(getRandom(numericCharacters));
 
 // Function to generate password with user input
 function generatePassword() {
