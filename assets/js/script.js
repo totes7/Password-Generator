@@ -107,8 +107,6 @@ function getPasswordOptions() {
         active = false;
       }
     }
-    console.log(typeof length);
-    console.log(length);
   }
 
   let lower = confirm(
@@ -123,7 +121,6 @@ function getPasswordOptions() {
   return result;
 }
 
-
 // Function for getting a random element from an array
 function getRandom(arr) {
   let index = Math.floor(Math.random() * arr.length);
@@ -131,16 +128,16 @@ function getRandom(arr) {
   return arr[index];
 }
 
-console.log(getRandom(upperCasedCharacters));
-console.log(getRandom(lowerCasedCharacters));
-console.log(getRandom(specialCharacters));
-console.log(getRandom(numericCharacters));
-
 // Function to generate password with user input
 function generatePassword() {
   let passwordSpecs = getPasswordOptions();
   let passwordLenght = passwordSpecs[0];
-  let masterArray = [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters];
+  let masterArray = [
+    lowerCasedCharacters,
+    upperCasedCharacters,
+    numericCharacters,
+    specialCharacters,
+  ];
   let specsArray = [];
 
   for (let i = 0; i < passwordSpecs.length; i++) {
@@ -150,21 +147,15 @@ function generatePassword() {
     }
   }
 
-  console.log(specsArray);
-
   let password = "";
 
   for (let j = 0; j < passwordLenght; j++) {
-    
     let tempArray = getRandom(specsArray);
     let passwordChar = getRandom(tempArray);
-    password += passwordChar
-    
+    password += passwordChar;
   }
 
-  console.log(password);
   return password;
-
 }
 
 generatePassword();
