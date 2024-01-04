@@ -94,9 +94,9 @@ function getPasswordOptions() {
   let length;
 
   while (active) {
-    length = parseInt(prompt(
-      "How many characters should your password contain? (8-128)"
-    ));
+    length = parseInt(
+      prompt("How many characters should your password contain? (8-128)")
+    );
 
     if (!length) {
       alert("You must choose a number between 8 and 128. Try again.");
@@ -107,7 +107,7 @@ function getPasswordOptions() {
         active = false;
       }
     }
-    console.log(typeof(length));
+    console.log(typeof length);
     console.log(length);
   }
 
@@ -123,7 +123,6 @@ function getPasswordOptions() {
   return result;
 }
 
-console.log(getPasswordOptions());
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -138,7 +137,37 @@ console.log(getRandom(specialCharacters));
 console.log(getRandom(numericCharacters));
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  let passwordSpecs = getPasswordOptions();
+  let passwordLenght = passwordSpecs[0];
+  let masterArray = [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters];
+  let specsArray = [];
+
+  for (let i = 0; i < passwordSpecs.length; i++) {
+    const spec = passwordSpecs[i];
+    if (passwordSpecs[i] === true) {
+      specsArray.push(masterArray[i - 1]);
+    }
+  }
+
+  console.log(specsArray);
+
+  let password = "";
+
+  for (let j = 0; j < passwordLenght; j++) {
+    
+    let tempArray = getRandom(specsArray);
+    let passwordChar = getRandom(tempArray);
+    password += passwordChar
+    
+  }
+
+  console.log(password);
+  return password;
+
+}
+
+generatePassword();
 
 // Get references to the #generate element
 let generateBtn = document.querySelector("#generate");
